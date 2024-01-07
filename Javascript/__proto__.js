@@ -48,3 +48,41 @@ test.myName();
 const obj = {};
 obj.__proto__ = Test.prototype;
 obj.myName();
+
+console.log(Object.isExtensible(Object.prototype));
+// you can add more properites
+// console.log(Object.setPrototypeOf(Object.prototype, {}));
+console.log(Object.setPrototypeOf(Object.prototype, null));
+
+// class Human {}
+
+// class SuperHero extends Human {}
+
+// const superMan = new SuperHero();
+
+// console.log(superMan);
+
+function Human(name, level) {
+  this.name = name;
+  this.level = level;
+}
+
+function SuperHero(name, level) {
+  Human.call(this, name, level);
+}
+
+Object.setPrototypeOf(SuperHero.prototype, Human.prototype);
+
+Human.prototype.speak = function () {
+  return `${this.name} says hello`;
+};
+
+SuperHero.prototype.fly = function () {
+  return `${this.name} is flying`;
+};
+
+const superMan = new SuperHero("chano", 1);
+
+console.log(superMan.speak());
+
+console.log(superMan.fly());
