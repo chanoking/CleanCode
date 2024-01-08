@@ -64,3 +64,36 @@ const args3 = [...arguments];
 
 args3.push("hello");
 console.log(args3);
+
+function midpoint() {
+  return (
+    (Math.min.apply(null, arguments) + Math.max.apply(null, arguments)) / 2
+  );
+}
+
+console.log(midpoint(3, 1, 4, 1, 5));
+
+function myConcat(separator) {
+  const args = Array.prototype.slice.call(arguments, 1);
+  console.log(args);
+  return args.join(separator);
+}
+
+console.log(myConcat(", ", "red", "orange", "blue"));
+console.log(myConcat("; ", "elephant", "giraffe", "lion", "cheetah"));
+
+function list(type) {
+  console.log(type);
+  let html = `<${type}l><li>`;
+  console.log(html);
+  const args = Array.prototype.slice.call(arguments, 1);
+  console.log(args);
+  html += args.join("</li><li>");
+  html += `</li></${type}l>`;
+  return html;
+}
+
+console.log(list("u", "One", "Two", "Three"));
+
+console.log(typeof arguments);
+console.log(typeof arguments[0]);
