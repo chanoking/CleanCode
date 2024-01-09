@@ -27,11 +27,28 @@
 // console.log(a);
 // console.log(d);
 
-const obj = { a: 1, b: { c: 2 } };
-const { a } = obj;
-let {
-  b: { c: d },
-} = obj;
+// const obj = { a: 1, b: { c: 2 } };
+// const { a } = obj;
+// let {
+//   b: { c: d },
+// } = obj;
 
-console.log(a);
-console.log(d);
+// console.log(a);
+// console.log(d);
+
+// const numbers = [];
+// const obj = { a: 1, b: 2 };
+// ({ a: numbers[0], b: numbers[1] } = obj);
+
+// console.log(numbers);
+
+const obj = {
+  *[Symbol.iterator]() {
+    for (const v of [0, 1, 2, 3]) {
+      console.log(v);
+      yield v;
+    }
+  },
+};
+const [a, b, ...rest] = obj;
+console.log(rest);
