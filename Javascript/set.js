@@ -83,7 +83,7 @@ class ClassWithGetSet4 {
     return this.#msg4;
   }
   set msg4(x) {
-    return (this.#msg4 = `Nice to meet YOU! ${x}`);
+    this.#msg4 = `Nice to meet YOU! ${x}`;
   }
 }
 
@@ -101,7 +101,7 @@ class ClassWithGetSet5 {
     return this.#msg5;
   }
   set msg5(x) {
-    return (this.#msg5 = `Fucking ${x}`);
+    this.#msg5 = `Fucking ${x}`;
   }
 }
 
@@ -111,4 +111,99 @@ console.log(instance5.msg5);
 
 instance5.msg5 = "guys";
 
+delete instance5.msg5;
+
 console.log(instance5.msg5);
+
+// const o = { a: 0 };
+
+// Object.defineProperty(o, "b", {
+//   set(x) {
+//     this.a = x / 2;
+//   },
+// });
+
+// o.b = 10;
+
+// // Runs the setter, which assigns 10 / 2 to the 'a' property
+
+// console.log(o.a);
+
+// const o = { a: 0 };
+
+// Object.defineProperty(o, "b", {
+//   set(x) {
+//     this.a = x / 2;
+//   },
+// });
+
+// o.b = 10;
+
+// console.log(o.a);
+
+// const o = { a: 0 };
+
+// Object.defineProperty(o, "b", {
+//   set(x) {
+//     this.a = x / 2;
+//   },
+// });
+
+// o.b = 10;
+
+// console.log(o.a);
+
+const o = { a: 0 };
+
+Object.defineProperty(o, "b", {
+  set(x) {
+    this.a = x / 2;
+  },
+});
+
+o.b = 10;
+
+console.log(o.a);
+
+// const expr = "foo";
+
+// const obj = {
+//   baz: "bar",
+//   set [expr](v) {
+//     this.baz = v;
+//   },
+// };
+
+// console.log(obj.baz);
+
+// obj.foo = "baz";
+
+// console.log(obj.baz);
+
+// const expr = "foo";
+
+// const obj = {
+//   baz: "bar",
+//   set [expr](v) {
+//     this.baz = v;
+//   },
+// };
+
+// console.log(obj.baz);
+
+// obj.foo = "baz";
+
+// console.log(obj.baz);
+
+const expr = "foo";
+
+const obj = {
+  baz: "bar",
+  set [expr](v) {
+    this.baz = v;
+  },
+};
+
+console.log(obj.baz);
+obj.foo = "baz";
+console.log(obj.baz);
