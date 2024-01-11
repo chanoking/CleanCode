@@ -49,3 +49,124 @@ class ClassWithPrivateMethod {
 
 const instance = new ClassWithPrivateMethod();
 console.log(instance.publicMethod());
+
+// class ClassWithPrivateAccessor {
+//   #message;
+
+//   get #decoratedMessage() {
+//     return `🍎${this.#message}🥐`;
+//   }
+
+//   set #decoratedMessage(msg) {
+//     this.#message = msg;
+//   }
+
+//   constructor() {
+//     this.#message = "hello world chanos!";
+//     console.log(this.#decoratedMessage);
+//   }
+// }
+
+// new ClassWithPrivateAccessor();
+
+// class ClassWithPrivateAccessor {
+//   #message;
+//   get #decoratedMessage() {
+//     return `🍏${this.#message}🍎`;
+//   }
+
+//   set #decoratedMessage(msg) {
+//     this.#message = msg;
+//   }
+
+//   constructor() {
+//     this.#message = "chanos helllo";
+//     console.log(this.#decoratedMessage);
+//   }
+// }
+
+// new ClassWithPrivateAccessor();
+
+// class ClassWithPrivateAccessor {
+//   #message;
+
+//   get #decoratedMessage() {
+//     return `🍉${this.#message}🍇`;
+//   }
+
+//   set #decoratedMessage(msg) {
+//     this.#message = msg;
+//   }
+
+//   constructor() {
+//     this.#decoratedMessage = "hello chanos";
+//     console.log(this.#decoratedMessage);
+//   }
+// }
+
+// new ClassWithPrivateAccessor();
+
+class ClassWithPrivateAccessor {
+  #message;
+  get #decoratedMessage() {
+    return `🍓${this.#message}🍋`;
+  }
+
+  set #decoratedMessage(msg) {
+    this.#message = msg;
+  }
+
+  constructor() {
+    this.#decoratedMessage = "hello chanos";
+    console.log(this.#decoratedMessage);
+  }
+}
+
+new ClassWithPrivateAccessor();
+
+class C {
+  #method() {}
+
+  static getMethod(x) {
+    return x.#method;
+  }
+}
+
+console.log(C.getMethod(new C()));
+// console.log(C.getMethod(C.prototype));
+
+// class ClassWithPrivateStaticMethod {
+//   static #privateStaticMethod() {
+//     return 42;
+//   }
+
+//   static publicStaticMethod() {
+//     return ClassWithPrivateStaticMethod.#privateStaticMethod();
+//   }
+// }
+
+// console.log(ClassWithPrivateStaticMethod.publicStaticMethod());
+
+// class ClassWithPrivateStaticMethod {
+//   static #privateStaticMethod() {
+//     return 42;
+//   }
+
+//   static publicStaticMethod() {
+//     return ClassWithPrivateStaticMethod.#privateStaticMethod();
+//   }
+// }
+
+// console.log(ClassWithPrivateStaticMethod.publicStaticMethod());
+
+class ClassWithPrivateStaticMethod {
+  static #privateStaticMethod() {
+    return 42;
+  }
+
+  static publicStaticMethod() {
+    return ClassWithPrivateStaticMethod.#privateStaticMethod();
+  }
+}
+
+console.log(ClassWithPrivateStaticMethod.publicStaticMethod());
